@@ -32,7 +32,7 @@
     args: 
     - 'apply'
     - '-f'
-    - 'kubernetes.yaml'
+    - '/k8/kubernetes.yaml'
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=prod-ti-mobile-backend-gke-cluster'
