@@ -22,7 +22,7 @@
     args:
     - '-c'
     - |
-       # sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" ti-deployment/k8/kubernetes.yaml.tpl | \
+       sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" kubernetes.yaml.tpl | \
        sed "s/TAG_NAME/${TAG_NAME}/g" > kubernetes.yaml
        
   # deploys the new version of our container image in the Kubernetes Engine cluster.
@@ -32,7 +32,7 @@
     args: 
     - 'apply'
     - '-f'
-    - '/k8/kubernetes.yaml'
+    - 'kubernetes.yaml'
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=prod-ti-mobile-backend-gke-cluster'
