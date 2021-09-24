@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: prod
-  name: prod-ti-backend
+  namespace: stage
+  name: stage-ti-backend
   labels:
     app: java-springboot
 spec:
@@ -21,14 +21,14 @@ spec:
         app: java-springboot
     spec:
       containers:
-        - name: prod-ti-backend
+        - name: stage-ti-backend
           image: gcr.io/ti-mobile-backend/spring-boot:v1
           imagePullPolicy: Always
           envFrom:
           - secretRef:
-             name: prod-ti-backend-secret
+             name: stage-ti-backend-secret
           - configMapRef:
-             name: prod-ti-backend-configmap
+             name: stage-ti-backend-configmap
           env:
           - name: GCP_CREDENTIAL_JSON_FILE
             value: /var/secrets/google/gcp-sa-key.json
@@ -59,8 +59,8 @@ spec:
       volumes:
       - name: gcp-sa-key
         secret:
-          secretName: prod-ti-backend-gcp-sa-secret
+          secretName: stage-ti-backend-gcp-sa-secret
      # volumes:
      # - name: firebase-sa-key
      #   secret:
-     #     secretName: prod-ti-backend-firebase-sa-secret
+     #     secretName: stage-ti-backend-firebase-sa-secret
