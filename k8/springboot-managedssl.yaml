@@ -1,9 +1,9 @@
 apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
-  name: prod-ti-backend-ssl-cert
-  namespace: prod
+  name: stage-ti-backend-ssl-cert
+  namespace: stage
 spec:
   domains:
-    - prodapi.trackandtrail.in
+    - stageapi.trackandtrail.in
      
